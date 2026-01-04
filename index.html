@@ -1,0 +1,58 @@
+<!--http://127.0.0.1:5500 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2e7d32">
+
+  <title>Plant Disease Detection</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Plant Disease Detection</h1>
+    <p class="subtitle">Upload or scan a leaf to check its health</p>
+
+    <input
+      type="file"
+      id="imageInput"
+      accept="image/*"
+      capture="environment"
+    />
+
+    <img id="preview" hidden />
+
+    <button id="predictBtn">Analyze Leaf</button>
+
+    <div id="result" hidden>
+      <h2 id="disease"></h2>
+      <p id="confidence"></p>
+
+      <div class="card">
+        <h3>Cure</h3>
+        <ul id="cure"></ul>
+      </div>
+
+      <div class="card">
+        <h3>Prevention</h3>
+        <ul id="prevention"></ul>
+      </div>
+
+      <div class="card">
+        <h3>Leaf Uses</h3>
+        <p id="uses"></p>
+      </div>
+
+      <p class="summary" id="summary"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

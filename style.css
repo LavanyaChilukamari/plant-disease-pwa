@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ---- MAIN CONTAINER ---- */
+.container {
+  max-width: 420px;
+  margin: 32px auto;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in;
+}
+
+/* ---- HEADERS ---- */
+h1 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #558b2f;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+/* ---- FILE INPUT ---- */
+input[type="file"] {
+  width: 100%;
+  padding: 14px;
+  border: 2px dashed #a5d6a7;
+  border-radius: 14px;
+  background: #f9fff9;
+  cursor: pointer;
+  transition: border 0.2s ease, background 0.2s ease;
+}
+
+input[type="file"]:hover {
+  border-color: #66bb6a;
+  background: #f1f8e9;
+}
+
+/* ---- IMAGE PREVIEW ---- */
+#preview {
+  width: 100%;
+  margin-top: 16px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ---- BUTTON ---- */
+button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 15px;
+  background: linear-gradient(135deg, #43a047, #2e7d32);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(67, 160, 71, 0.35);
+}
+
+button:disabled {
+  background: #9ccc9c;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ---- RESULT SECTION ---- */
+#result {
+  margin-top: 24px;
+  animation: fadeIn 0.4s ease-in;
+}
+
+#disease {
+  text-align: center;
+  color: #1b5e20;
+  margin-bottom: 4px;
+}
+
+#confidence {
+  text-align: center;
+  color: #4caf50;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+/* ---- INFO CARDS ---- */
+.card {
+  background: #f1f8e9;
+  border-radius: 14px;
+  padding: 14px;
+  margin-top: 14px;
+  border-left: 4px solid #66bb6a;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: #33691e;
+  font-size: 16px;
+}
+
+.card ul {
+  padding-left: 18px;
+  margin: 0;
+}
+
+.card li {
+  margin-bottom: 6px;
+  color: #2e7d32;
+  font-size: 14px;
+}
+
+/* ---- SUMMARY ---- */
+.summary {
+  margin-top: 18px;
+  padding: 10px;
+  background: #e8f5e9;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #1b5e20;
+  text-align: center;
+}
+
+/* ---- ANIMATIONS ---- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
