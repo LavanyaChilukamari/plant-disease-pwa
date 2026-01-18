@@ -1,6 +1,6 @@
 // const API_URL = "http://127.0.0.1:5000/predict";
 // const API_URL = "http://192.168.0.109:5000/predict"; // for phone
-const API_URL = "/predict"; // SAME ORIGIN – THIS IS THE FIX
+const API_URL = "https://plant-disease-backend-e3el.onrender.com/predict"; // SAME ORIGIN – THIS IS THE FIX
 
 const imageInput = document.getElementById("imageInput");
 const preview = document.getElementById("preview");
@@ -66,3 +66,4 @@ predictBtn.addEventListener("click", async () => {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/service-worker.js");
 }
+
