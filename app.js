@@ -1,6 +1,4 @@
-// const API_URL = "http://127.0.0.1:5000/predict";
-// const API_URL = "http://192.168.0.109:5000/predict"; // for phone
-const API_URL = "https://plant-disease-backend-e3el.onrender.com/predict"; // SAME ORIGIN – THIS IS THE FIX
+const API_URL = "https://plant-disease-backend-e3el.onrender.com/predict";
 
 const imageInput = document.getElementById("imageInput");
 const preview = document.getElementById("preview");
@@ -28,7 +26,10 @@ imageInput.addEventListener("change", () => {
 
 predictBtn.addEventListener("click", async () => {
   const file = imageInput.files[0];
-  if (!file) return alert("Upload image");
+  if (!file) {
+    alert("Upload an image first");
+    return;
+  }
 
   const formData = new FormData();
   formData.append("user_id", userId);
@@ -38,8 +39,17 @@ predictBtn.addEventListener("click", async () => {
   predictBtn.innerText = "Analyzing...";
 
   try {
-    const res = await fetch(API_URL, { method: "POST", body: formData });
+    const res = await fetch(API_URL, {
+      method: "POST",
+      body: formData
+    });
+
     const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || "Prediction failed");
+      return;
+    }
 
     if (res.status === 422) {
       diseaseEl.innerText = "❌ Not a Leaf";
@@ -55,8 +65,10 @@ predictBtn.addEventListener("click", async () => {
     usesEl.innerText = data.leaf_uses;
     summaryEl.innerText = data.summary;
     resultDiv.hidden = false;
-  } catch {
-    alert("Backend error");
+
+  } catch (err) {
+    alert("Backend unreachable");
+    console.error(err);
   } finally {
     predictBtn.disabled = false;
     predictBtn.innerText = "Analyze Leaf";
@@ -66,4 +78,3 @@ predictBtn.addEventListener("click", async () => {
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("/service-worker.js");
 }
-
